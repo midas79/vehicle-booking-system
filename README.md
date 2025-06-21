@@ -124,15 +124,14 @@ Jika Anda ingin menjalankan aplikasi secara lokal untuk development:
 2. **Install Dependencies**
 
     ```bash
-    cp .env.example .env
-    php artisan key:generate
-
+    composer install
+    npm install && npm run build
     ```
 
 3. **Setup Environment**
 
     ```bash
-       cp .env.example .env
+    cp .env.example .env
     php artisan key:generate
 
     ```
