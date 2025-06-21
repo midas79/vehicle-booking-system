@@ -11,7 +11,6 @@ class BookingSeeder extends Seeder
 {
     public function run(): void
     {
-        // Create sample bookings
         $booking1 = Booking::create([
             'booking_number' => 'BK' . date('Ymd') . '0001',
             'user_id' => 1,
@@ -24,7 +23,6 @@ class BookingSeeder extends Seeder
             'status' => 'approved'
         ]);
 
-        // Create approvals
         Approval::create([
             'booking_id' => $booking1->id,
             'approver_id' => 3,
@@ -41,7 +39,6 @@ class BookingSeeder extends Seeder
             'approved_at' => now()->subHour()
         ]);
 
-        // Create another pending booking
         $booking2 = Booking::create([
             'booking_number' => 'BK' . date('Ymd') . '0002',
             'user_id' => 2,
@@ -68,7 +65,6 @@ class BookingSeeder extends Seeder
             'status' => 'pending'
         ]);
 
-        // Create completed booking with usage data
         $booking3 = Booking::create([
             'booking_number' => 'BK' . date('Ymd', strtotime('-1 day')) . '0001',
             'user_id' => 1,

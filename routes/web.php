@@ -6,6 +6,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\VehicleUsageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ActivityLogController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -47,6 +48,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // Vehicle monitoring
         Route::get('/vehicle-monitoring', [VehicleUsageController::class, 'monitoring'])
             ->name('vehicle-usage.monitoring');
+
+        // Activity Logs
+        Route::get('/activity-logs', [ActivityLogController::class, 'index'])->name('activity-logs.index');
     });
 
     // Approver and Admin routes

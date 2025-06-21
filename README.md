@@ -1,61 +1,279 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Vehicle Booking System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem pemesanan kendaraan untuk perusahaan tambang nikel yang memiliki kantor pusat, kantor cabang, dan beberapa lokasi tambang.
 
-## About Laravel
+##  Fitur
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Autentikasi & Autorisasi
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Multi-role user management (Admin, Approver Level 1, Approver Level 2)
+- Secure login system
+- Role-based access control
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Dashboard Analytics
 
-## Learning Laravel
+- Total kendaraan tersedia
+- Booking aktif real-time
+- Pending approvals counter
+- Grafik penggunaan kendaraan
+- Distribusi tipe kendaraan
+- Trend booking bulanan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Manajemen Kendaraan
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Vehicle Monitoring**
+- Tracking kilometer kendaraan
+- Monitoring konsumsi BBM
+- Status kendaraan (Available/In Use/Maintenance)
+  
+- **Service Management**
+- Penjadwalan service berkala
+- Reminder otomatis berdasarkan KM atau tanggal
+- Riwayat service lengkap
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Sistem Booking
 
-## Laravel Sponsors
+- **Multi-level Approval**
+- 2 tingkat persetujuan
+- Tracking status approval
+- Notifikasi otomatis
+  
+- **Fitur Booking**
+- Pemilihan kendaraan dan driver
+- Penentuan tujuan dan keperluan
+- Jadwal pemesanan fleksibel
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Reporting & Export
 
-### Premium Partners
+- Export laporan ke Excel
+- Filter berdasarkan periode
+- Laporan meliputi:
+- Penggunaan kendaraan
+- Konsumsi BBM
+- Riwayat service
+- Status booking
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Activity Logging
 
-## Contributing
+- Pencatatan semua aktivitas
+- Audit trail lengkap
+- Tracking perubahan data
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Live Demo
 
-## Code of Conduct
+Aplikasi telah di-deploy dan dapat diakses di:
+**https://vehicle-booking-system.laravel.cloud/**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Persyaratan Sistem
 
-## Security Vulnerabilities
+-   **PHP Version**: >= 8.2
+-   **Laravel Version**: 12.0
+-   **Database**: MySQL 5.7+ / MariaDB 10.3+
+-   **Node.js**: >= 16.x
+-   **Composer**: >= 2.0
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Daftar User Default
 
-## License
+Berikut adalah daftar user yang tersedia untuk testing di aplikasi live:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Admin Users
+
+| Email                 | Password    | Role  | Region                 | Deskripsi             |
+| --------------------- | ----------- | ----- | ---------------------- | --------------------- |
+| admin@example.com     | password123 | Admin | Kantor Pusat Jakarta   | Admin utama sistem    |
+| admin.sby@example.com | password123 | Admin | Kantor Cabang Surabaya | Admin cabang Surabaya |
+
+### Approver Level 1
+
+| Email                  | Password    | Role     | Level | Region                 | Deskripsi           |
+| ---------------------- | ----------- | -------- | ----- | ---------------------- | ------------------- |
+| approver1@example.com  | password123 | Approver | 1     | Kantor Pusat Jakarta   | Manager Operasional |
+| supervisor@example.com | password123 | Approver | 1     | Tambang Sulawesi Utara | Supervisor Lapangan |
+
+### Approver Level 2
+
+| Email                 | Password    | Role     | Level | Region               | Deskripsi            |
+| --------------------- | ----------- | -------- | ----- | -------------------- | -------------------- |
+| approver2@example.com | password123 | Approver | 2     | Kantor Pusat Jakarta | General Manager      |
+| director@example.com  | password123 | Approver | 2     | Kantor Pusat Jakarta | Direktur Operasional |
+
+## Cara Mengakses Aplikasi Live
+
+1. **Buka Browser**
+   Akses URL: https://vehicle-booking-system.laravel.cloud/
+
+2. **Login**
+   Gunakan salah satu kredensial di atas sesuai dengan role yang ingin dicoba
+
+3. **Fitur**
+    - **Admin**: Memiliki akses penuh ke semua fitur
+    - **Approver**: Fokus pada approval pemesanan sesuai level
+
+## Instalasi Lokal (Development)
+
+Jika Anda ingin menjalankan aplikasi secara lokal untuk development:
+
+1. **Clone Repository**
+
+    ```bash
+    git clone [repository-url]
+    cd vehicle-booking-system
+
+    ```
+
+2. **Install Dependencies**
+
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+
+    ```
+
+3. **Setup Environment**
+
+    ```bash
+       cp .env.example .env
+    php artisan key:generate
+
+    ```
+
+4. **Konfigurasi Database**
+   Edit file .env dan sesuaikan konfigurasi database:
+
+    ```bash
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=vehicle_booking
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+
+5. **Migrasi Database & Seeder**
+
+    ```bash
+    php artisan migrate --seed
+    ```
+
+6. **Build Assets**
+
+    ```bash
+    npm run build
+    ```
+
+7. **Jalankan Aplikasi**
+
+    ```bash
+    php artisan serve
+    npm run dev
+    ```
+
+## Panduan Penggunaan
+
+### 1. Login
+
+- Akses aplikasi melalui browser
+- Masukkan email dan password
+- Klik tombol "Login"
+
+### 2. Dashboard
+
+Setelah login, dashboard menampilkan:
+
+- Statistik kendaraan
+- Grafik interaktif
+- Status booking terkini
+
+### 3. Alur Pemesanan Kendaraan
+
+#### Pembuatan Booking (Admin)
+
+1. Navigasi ke menu "Bookings"
+2. Klik "Create New Booking"
+3. Isi form:
+
+- Pilih kendaraan
+- Pilih driver
+- Input tujuan dan keperluan
+- Set tanggal mulai dan selesai
+
+4. Submit booking
+
+#### Approval Process
+
+**Level 1:**
+
+- Approver menerima notifikasi
+- Review detail pemesanan
+- Approve/Reject dengan catatan
+
+**Level 2:**
+
+- Setelah approval level 1
+- Review final
+- Approve/Reject untuk finalisasi
+
+#### Penggunaan Kendaraan
+
+- Status berubah menjadi "Approved"
+- Driver siap menggunakan kendaraan
+- Admin input data aktual setelah selesai
+
+### 4. Manajemen Kendaraan (Admin)
+
+#### Vehicle Usage
+
+- Input KM awal dan akhir
+- Catat konsumsi BBM
+- Update status kendaraan
+
+#### Service Management
+
+- Schedule service berkala
+- Track service history
+- Monitor service status
+
+## 🗄️ Struktur Database
+
+### Tabel Utama
+
+| Tabel | Deskripsi |
+| --- | --- |
+| `users` | Data pengguna sistem |
+| `regions` | Data kantor dan lokasi |
+| `vehicles` | Data kendaraan |
+| `drivers` | Data driver |
+| `bookings` | Data pemesanan |
+| `approvals` | Data persetujuan |
+| `vehicle_usages` | Data penggunaan |
+| `activity_logs` | Log aktivitas |
+
+### Activity Diagram
+
+```javascript
+[Start] → [User Request Vehicle]
+           ↓
+    [Admin Create Booking]
+           ↓
+    [Select Vehicle & Driver]
+           ↓
+    [Select Approvers (Level 1 & 2)]
+           ↓
+    [Submit Booking]
+           ↓
+    [System Send Notification to Level 1 Approver]
+           ↓
+    <Level 1 Decision>
+    ↙ Reject    ↘ Approve
+[Booking Rejected]  [Update Status]
+    ↓                    ↓
+[End]          [Send Notification to Level 2 Approver]
+                        ↓
+                 <Level 2 Decision>
+                ↙ Reject    ↘ Approve
+         [Booking Rejected]  [Booking Approved]
+                ↓                    ↓
+              [End]          [Vehicle Ready to Use]
+                                    ↓
+                                  [End]
+```

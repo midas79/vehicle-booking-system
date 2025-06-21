@@ -23,7 +23,7 @@
 
                     @if(auth()->user()->isAdmin() || auth()->user()->isApprover())
                                     <a href="{{ route('bookings.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out
-                                                  {{ request()->routeIs('bookings.*')
+                                                                  {{ request()->routeIs('bookings.*')
                         ? 'border-blue-400 text-white'
                         : 'border-transparent text-gray-300 hover:text-white hover:border-gray-300' }}">
                                         <i class="fas fa-calendar-check mr-2"></i>
@@ -35,9 +35,8 @@
                                     <!-- Vehicle Management Dropdown -->
                                     <div class="relative flex items-center">
                                         <button @click="vehicleDropdownOpen = !vehicleDropdownOpen"
-                                            @click.away="vehicleDropdownOpen = false" type="button"
-                                            class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out
-                                                           {{ request()->routeIs('vehicle-usage.*')
+                                            @click.away="vehicleDropdownOpen = false" type="button" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out
+                                                                           {{ request()->routeIs('vehicle-usage.*')
                         ? 'border-blue-400 text-white'
                         : 'border-transparent text-gray-300 hover:text-white hover:border-gray-300' }}">
                                             <i class="fas fa-truck mr-2"></i>
@@ -61,19 +60,19 @@
                                             <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="vehicle-menu">
                                                 <a href="{{ route('vehicle-usage.index') }}"
                                                     class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white transition duration-150 ease-in-out
-                                                              {{ request()->routeIs('vehicle-usage.index') ? 'bg-gray-600 text-white' : '' }}" role="menuitem">
+                                                                              {{ request()->routeIs('vehicle-usage.index') ? 'bg-gray-600 text-white' : '' }}" role="menuitem">
                                                     <i class="fas fa-road mr-3 w-4 inline-block"></i>
                                                     Vehicle Usage
                                                 </a>
                                                 <a href="{{ route('vehicle-usage.service-index') }}"
                                                     class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white transition duration-150 ease-in-out
-                                                              {{ request()->routeIs('vehicle-usage.service-index') ? 'bg-gray-600 text-white' : '' }}" role="menuitem">
+                                                                              {{ request()->routeIs('vehicle-usage.service-index') ? 'bg-gray-600 text-white' : '' }}" role="menuitem">
                                                     <i class="fas fa-wrench mr-3 w-4 inline-block"></i>
                                                     Service Management
                                                 </a>
                                                 <a href="{{ route('vehicle-usage.monitoring') }}"
                                                     class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white transition duration-150 ease-in-out
-                                                              {{ request()->routeIs('vehicle-usage.monitoring') ? 'bg-gray-600 text-white' : '' }}" role="menuitem">
+                                                                              {{ request()->routeIs('vehicle-usage.monitoring') ? 'bg-gray-600 text-white' : '' }}" role="menuitem">
                                                     <i class="fas fa-chart-line mr-3 w-4 inline-block"></i>
                                                     Vehicle Monitoring
                                                 </a>
@@ -82,11 +81,19 @@
                                     </div>
 
                                     <a href="{{ route('reports.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out
-                                                  {{ request()->routeIs('reports.*')
+                                                                  {{ request()->routeIs('reports.*')
                         ? 'border-blue-400 text-white'
                         : 'border-transparent text-gray-300 hover:text-white hover:border-gray-300' }}">
                                         <i class="fas fa-file-excel mr-2"></i>
                                         Reports
+                                    </a>
+
+                                    <a href="{{ route('activity-logs.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out
+                                                                  {{ request()->routeIs('activity-logs.*')
+                        ? 'border-blue-400 text-white'
+                        : 'border-transparent text-gray-300 hover:text-white hover:border-gray-300' }}">
+                                        <i class="fas fa-history mr-2"></i>
+                                        Activity Logs
                                     </a>
                     @endif
                 </div>
@@ -150,8 +157,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-gray-800">
         <div class="pt-2 pb-3 space-y-1">
-            <a href="{{ route('dashboard') }}"
-                class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
+            <a href="{{ route('dashboard') }}" class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
                       {{ request()->routeIs('dashboard')
     ? 'border-blue-400 text-white bg-gray-900'
     : 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-300' }}">
@@ -160,9 +166,8 @@
             </a>
 
             @if(auth()->user()->isAdmin() || auth()->user()->isApprover())
-                    <a href="{{ route('bookings.index') }}"
-                        class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
-                                  {{ request()->routeIs('bookings.*')
+                    <a href="{{ route('bookings.index') }}" class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
+                                          {{ request()->routeIs('bookings.*')
                 ? 'border-blue-400 text-white bg-gray-900'
                 : 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-300' }}">
                         <i class="fas fa-calendar-check mr-2"></i>
@@ -173,25 +178,22 @@
             @if(auth()->user()->isAdmin())
                     <div class="border-t border-gray-700 pt-2">
                         <div class="px-4 py-2 text-xs text-gray-400 uppercase">Vehicle Management</div>
-                        <a href="{{ route('vehicle-usage.index') }}"
-                            class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
-                                      {{ request()->routeIs('vehicle-usage.index')
+                        <a href="{{ route('vehicle-usage.index') }}" class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
+                                              {{ request()->routeIs('vehicle-usage.index')
                 ? 'border-blue-400 text-white bg-gray-900'
                 : 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-300' }}">
                             <i class="fas fa-road mr-2"></i>
                             Vehicle Usage
                         </a>
-                        <a href="{{ route('vehicle-usage.service-index') }}"
-                            class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
-                                      {{ request()->routeIs('vehicle-usage.service-*')
+                        <a href="{{ route('vehicle-usage.service-index') }}" class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
+                                              {{ request()->routeIs('vehicle-usage.service-*')
                 ? 'border-blue-400 text-white bg-gray-900'
                 : 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-300' }}">
                             <i class="fas fa-wrench mr-2"></i>
                             Service Management
                         </a>
-                        <a href="{{ route('vehicle-usage.monitoring') }}"
-                            class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
-                                      {{ request()->routeIs('vehicle-usage.monitoring')
+                        <a href="{{ route('vehicle-usage.monitoring') }}" class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
+                                              {{ request()->routeIs('vehicle-usage.monitoring')
                 ? 'border-blue-400 text-white bg-gray-900'
                 : 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-300' }}">
                             <i class="fas fa-chart-line mr-2"></i>
@@ -199,13 +201,20 @@
                         </a>
                     </div>
 
-                    <a href="{{ route('reports.index') }}"
-                        class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
-                                  {{ request()->routeIs('reports.*')
+                    <a href="{{ route('reports.index') }}" class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
+                                          {{ request()->routeIs('reports.*')
                 ? 'border-blue-400 text-white bg-gray-900'
                 : 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-300' }}">
                         <i class="fas fa-file-excel mr-2"></i>
                         Reports
+                    </a>
+
+                    <a href="{{ route('activity-logs.index') }}" class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition duration-150 ease-in-out
+                                          {{ request()->routeIs('activity-logs.*')
+                ? 'border-blue-400 text-white bg-gray-900'
+                : 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-300' }}">
+                        <i class="fas fa-history mr-2"></i>
+                        Activity Logs
                     </a>
             @endif
         </div>
