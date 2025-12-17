@@ -232,7 +232,7 @@ Setelah login, dashboard menampilkan:
 - Track service history
 - Monitor service status
 
-## 🗄️ Struktur Database
+##  Struktur Database
 
 ### Tabel Utama
 
